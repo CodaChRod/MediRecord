@@ -2,19 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Clinic;
+package appointments;
+
+import Clinic.DyanamicLists;
 
 /**
  *
  * @author UTN
- * *@param <T>
+ * @param <T>
  * @param <K>
  */
-public interface DyanamicLists <t> {
-    
-    public boolean add (T item);
-    public Iterator getall();
-    public int size();
-    public boolean isEmpy();
-    
+
+public interface KeyDynamicsLists <T,K> extends DyanamicLists{
+    public T get(K id);
+    public boolean remove(K id);
 }
