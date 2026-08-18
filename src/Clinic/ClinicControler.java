@@ -4,6 +4,7 @@
  */
 package Clinic;
 
+import patients.Patient;
 import vista.iView;
 
 /**
@@ -31,7 +32,7 @@ public class ClinicControler {
         return controller;
     }
     
-    public  addPatient(Patient patient){
+    public void addPatient(Patient patient){
 
     }
 
@@ -60,6 +61,7 @@ public class ClinicControler {
     }
 
     public boolean cancelAppointment(String code){
+        
         return false;
     }
 
@@ -68,7 +70,13 @@ public class ClinicControler {
     }
 
     public boolean checkInPatient(String patientId){
-        return false;
+        boolean status = clinic.checkInPatient(patientId);
+        if (status){
+            view.showMessage("Registro completa con exito");
+}else{
+            
+        }
+        return status;
     }
 
     public Patient getNextPatient(){
@@ -76,7 +84,12 @@ public class ClinicControler {
     }
 
     public Patient attendNextPatient(){
-        return null;
+        Patient pat = clinic.getNextPatient();
+        if(pat==null){
+            view.ShowError("No existen más pacientes");
+        }
+        clinic.attendNextPatient();
+      return pat;
     }
 
     public int getWaitingPatientCount(){
